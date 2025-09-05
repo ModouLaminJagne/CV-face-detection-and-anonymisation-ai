@@ -33,5 +33,17 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
 
         cv2.rectangle(img, (x1, y1), (x1 + w, y1 + h), (0, 255, 0), 10)
 
+        # Blur Image
+        Bimg = img.copy()
+        Bimg[y1:y1 + h, x1:x1 + w, :] = cv2.blur(Bimg[y1:y1 + h, x1:x1 + w, :], (50, 50))
+        # Bimg = cv2.GaussianBlur(Bimg, (99, 99), 30)
+        # mask = np.zeros_like(img)
+        # mask[y1:y1 + h, x1:x1 + w] = Bimg[y1:y1 + h, x1:x1 + w]
+        # img = mask
+
+    # cv2.imshow("Image", Bimg)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
+
 
         
