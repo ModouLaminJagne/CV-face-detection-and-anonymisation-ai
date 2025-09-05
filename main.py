@@ -46,4 +46,7 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
     # cv2.destroyAllWindows()
 
 
-        
+# Save Image
+# cv2.imwrite("C:\\Users\\Administrator\\Desktop\\111_blurred.jpg", Bimg)
+cv2.imwrite(os.path.join(output_dir, "blurred_image.jpg"), Bimg)
+print("Image saved to:", os.path.join(output_dir, "blurred_image.jpg"))
