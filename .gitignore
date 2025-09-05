@@ -7,6 +7,85 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+#  PyInstaller
+*.spec
+#  Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+# Translations
+*.mo
+*.pot 
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.bmp
+*.svg
+*.ico
+*.webp
+*.psd
+*.ai
+*.eps
+*.indd
+*.raw
+*.heic
+*.pdf
+*.xcf
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+*.mp3
+*.wav
+*.flac
+*.aac
+*.ogg
+*.wma
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.gz
+*.bz2
+*.xz
+*.iso
+*.dmg
+*.exe
+*.dll
+*.bin
+*.msi
+*.deb
+*.rpm
+*.pkg
+*.log
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/

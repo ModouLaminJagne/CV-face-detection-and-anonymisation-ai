@@ -12,7 +12,7 @@ if not os.path.exists(output_dir):
 
 
 # Read Image
-img_path = "C:\\Users\\Administrator\\Desktop\\111.jpg"
+img_path = "C:\\Users\\Administrator\\Documents\\My Work\\CV-face-detection-and-anonymisation-ai\\IMG_4296.jpg"
 img = cv2.imread(img_path)
 
 H, W, _ = img.shape
@@ -29,17 +29,17 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
             bboxC = location_data.relative_bounding_box
 
         x1, y1, w, h = bboxC.xmin, bboxC.ymin, bboxC.width, bboxC.height
-        x1, y1, w, h = int(x1 * W), int(y1 * H), int(w * W), int(h * H)
+        x1, y1, w, h = int(x1 * W), int(y1 * H), int(w * W), int((h * H)+20)
 
-        cv2.rectangle(img, (x1, y1), (x1 + w, y1 + h), (0, 255, 0), 10)
+        cv2.rectangle(img, (x1, y1), (x1 + w, y1 + h), (0, 255, 0), 20)
 
         # Blur Image
         Bimg = img.copy()
-        Bimg[y1:y1 + h, x1:x1 + w, :] = cv2.blur(Bimg[y1:y1 + h, x1:x1 + w, :], (50, 50))
-        # Bimg = cv2.GaussianBlur(Bimg, (99, 99), 30)
-        # mask = np.zeros_like(img)
-        # mask[y1:y1 + h, x1:x1 + w] = Bimg[y1:y1 + h, x1:x1 + w]
-        # img = mask
+        Bimg[y1:y1 + h, x1:x1 + w, :] = cv2.blur(Bimg[y1:y1 + h, x1:x1 + w, :], (70, 70))
+        # Bimg[y1:y1 + (h-5), x1:x1 + w, :] = cv2.GaussianBlur(Bimg[y1:y1 + (h-5), x1:x1 + w, :], (50, 50), 30)
+    else:
+        Bimg = img.copy()
+        print("No face detected")
 
     # cv2.imshow("Image", Bimg)
     # cv2.waitKey(0)
@@ -47,6 +47,6 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
 
 
 # Save Image
-# cv2.imwrite("C:\\Users\\Administrator\\Desktop\\111_blurred.jpg", Bimg)
-cv2.imwrite(os.path.join(output_dir, "blurred_image.jpg"), Bimg)
-print("Image saved to:", os.path.join(output_dir, "blurred_image.jpg"))
+# cv2.imwrite("C:\\Users\\Administrator\\Desktop\\111_blurred2.jpg", Bimg)
+cv2.imwrite(os.path.join(output_dir, "blurred_image2.jpg"), Bimg)
+print("Image saved to:", os.path.join(output_dir, "blurred_image2.jpg"))
