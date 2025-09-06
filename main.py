@@ -59,4 +59,27 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
         cv2.imwrite(os.path.join(output_dir, "blurred_pic.jpg"), img)
         print("Image saved to:", os.path.join(output_dir, "blurred_pic.jpg"))
 
+    # Video Mode
+    elif args.mode in ["video"]:
+
+        cap = cv2.VideoCapture(args.filePath)
+        ret, frame = cap.read()
+
+        output_vid = cv2.VideoWriter(os.path.join(output_dir, "blurred_vid.mp4"),
+                                     cv2.VideoWriter.fourcc(*'MP4V'),
+                                     25,
+                                     (frame.shape[1], frame.shape[0]))
+        print("Video saved to:", os.path.join(output_dir, "blurred_vid.mp4"))
+
+        # Process Video
+        while ret:
+            frame = process_img(frame, face_detection)
+
+            output_vid.write(frame)
+
+            ret, frame = cap.read()
+
+        cap.release()
+        output_vid.release()
+
     
