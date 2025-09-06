@@ -82,4 +82,19 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
         cap.release()
         output_vid.release()
 
-    
+    # Webcam Mode
+    elif args.mode in ["webcam"]:
+
+        cam = cv2.VideoCapture(0)
+        ret, frame = cam.read()
+
+        # Process Video
+        while ret:
+            frame = process_img(frame, face_detection)
+
+            cv2.imshow('frame', frame)
+            cv2.waitKey(25)
+
+            ret, frame = cam.read()
+
+        cam.release()
