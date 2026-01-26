@@ -1,3 +1,3 @@
 # CV-face-detection-and-bluring-ai
-A computer vision project for detecting and anonymizing faces.
+A Computer Vision project for detecting and anonymizing faces.
 This is a practice/learning project 
